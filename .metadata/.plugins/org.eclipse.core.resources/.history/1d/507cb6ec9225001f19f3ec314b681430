@@ -1,0 +1,76 @@
+package com.softgraf.farmacia.controller;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.softgraf.farmacia.model.Estoque;
+import com.softgraf.farmacia.model.Produto;
+import com.softgraf.farmacia.model.dao.ConexaoBD;
+import com.softgraf.farmacia.model.dao.ProdutoDAO;
+import com.softgraf.farmacia.view.ProdutoView;
+
+import static com.softgraf.farmacia.view.Teclado.*;
+
+public class Principal {
+
+	public static void main(String[] args) throws SQLException {
+
+		ConexaoBD bd = new ConexaoBD();
+		Connection conexao = bd.conectar();
+
+		ProdutoDAO dao = new ProdutoDAO(conexao);
+		dao.criarTabela();
+
+		Estoque estoque = Estoque.getInstancia();
+
+		int opcao = 0;
+
+		do {
+			msg("========= Sistema e FARMACIA V 1.0 =============");
+			msg("1= cadastrar produto");
+			msg("2 = cadastrar cliente");
+			msg("3 = cadastrar pedido");
+			msg("4 = listar produtos cadastrados");
+			msg("9 = sair do sistema");
+
+			opcao = lerInt("escolha");
+
+			switch (opcao) {
+			case 1:
+				Produto p = ProdutoView.cadastrar();
+				estoque.addProduto(p);
+				System.out.println("produto cadastrado com sucesso!\n");
+				break;
+			case 2:
+				System.out.println("castrando cliente");
+				break;
+			case 3:
+				System.out.println("castrando pedido");
+				break;
+			case 4:
+				System.out.println("\n------Produtos cadastrados------");
+				List<Produto> lista = estoque.listaProdutos();
+				if (lista.isEmpty()) {
+					System.out.println("\n*** nao ha produtos cadastrados ***\n");
+				} else {
+					lista.forEach(System.out::println);
+				}
+				lista.forEach(System.out::println);
+				break;
+			case 9:
+				System.out.println("adeus!!!!");
+				break;
+			default:
+				System.out.println("opcao invalida");
+				break;
+			}
+
+		} while (opcao != 9);
+
+		// Continua...
+
+		bd.fecharConexao(conexao);
+	}
+
+}

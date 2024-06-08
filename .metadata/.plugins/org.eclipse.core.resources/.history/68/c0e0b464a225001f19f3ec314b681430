@@ -1,0 +1,35 @@
+package com.softgraf.farmacia.view;
+
+import java.util.List;
+
+import com.softgraf.farmacia.model.Cliente;
+import com.softgraf.farmacia.model.Estoque;
+import com.softgraf.farmacia.model.Produto;
+
+import ClienteRepository.ClienteRepository;
+
+public class ClienteView {
+
+	// construtor privado
+	private ClienteView() {
+	};
+
+	public static Cliente cadastrar() {
+		Teclado.msg("cadastro do cliente");
+
+		String nome = Teclado.lerString("codigo do cliente");
+		Cliente c = new Cliente(nome);
+		return c;
+	}
+	
+	public  static void listar(ClienteRepository Repository) {
+		System.out.println("\n------Produtos cadastrados------");
+		List<Produto> lista = Cliente.listaProdutos();
+		
+		if (lista.isEmpty()) {
+			System.out.println("\n*** nao ha produtos cadastrados ***\n");
+		} else {
+			lista.forEach(System.out::println);
+		}
+	}
+}

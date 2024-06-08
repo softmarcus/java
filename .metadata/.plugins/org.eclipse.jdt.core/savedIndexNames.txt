@@ -1,0 +1,13 @@
+INDEX VERSION 1.134+D:\Curso Java Marcus\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2755043341.index
+1301595159.index
+3543240859.index
+3413270776.index
+2881832041.index
+3291699406.index
+3562820738.index
+1027600823.index
+1040068760.index
+2740675604.index
+3499446782.index

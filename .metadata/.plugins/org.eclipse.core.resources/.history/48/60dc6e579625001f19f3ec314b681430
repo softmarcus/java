@@ -1,0 +1,54 @@
+package com.softgraf.farmacia.view;
+
+import com.softgraf.farmacia.model.Estoque;
+import com.softgraf.farmacia.model.Produto;
+
+import static com.softgraf.farmacia.view.Teclado.msg;
+
+import java.util.List;
+
+public class ProdutoView {
+
+	private ProdutoView() {
+	};
+
+	public static Produto cadastrar() {
+		Teclado.msg("-----Cadastro de  produto");
+
+		String codigo = Teclado.lerString("codigo do produto");
+		String descricao = Teclado.lerLinha("descricao do produto");
+		float preco = Teclado.lerFloat("preco do produto");
+
+		Produto p = new Produto(codigo, descricao, preco);
+
+		return p;
+	}
+	public void listar(Estoque estoque) {
+		System.out.println("\n------Produtos cadastrados------");
+		List<Produto> lista = estoque.listaProdutos();
+		
+		if (lista.isEmpty()) {
+			System.out.println("\n*** nao ha produtos cadastrados ***\n");
+		} else {
+			lista.forEach(System.out::println);
+		}
+	}
+
+	public static void buscar(Estoque estoque) {
+		String codigo = Teclado.lerString("digite o codigo do produto para buscar:");
+		Produto p = estoque.buscarPorCodigo(codigo);
+		if (p != null)
+			System.out.println(p);
+		else
+			System.out.println("*** codigo nao encontrado !");
+
+	}
+	public static void remover(Estoque estoque) {
+		String codigo = Teclado.lerString("digite o codigo do produto para buscar:");
+		boolean removido = estoque.removeProduto(codigo);
+		if(removido)
+			System.out.println("Produto removido");
+		else
+			System.out.println("*** codigo nao encontrado !");
+	}
+}

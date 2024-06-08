@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muda cor do botao</title>
+
+    <script>
+        function mudaCorVermelho(btn) {
+            const h1 = document.getElementsByTagName("h1")[0]
+            h1.innerHTML = "vermelho"
+            h1.style.color = "red"
+
+            document.getElementById('red')
+            btn.style.color='red'
+
+
+        }
+        function mudaCorAzul(btn) {
+            const h1 = document.getElementsByTagName("h1")[0]
+            h1.innerHTML = "azul"
+            h1.style.color = "blue"
+
+            document.getElementById('blue')
+            btn.style.color='blue'
+        }
+        function mudaCorVerde(btn) {
+            const h1 = document.getElementsByTagName("h1")[0]
+            h1.innerHTML = "verde"
+            h1.style.color = "green"
+             document.getElementById('green')
+            btn.style.color='green'
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+<h1>Hello Html</h1>
+<button id="red" onclick="mudaCorVermelho(this)">vermelho</button>
+<button id="blue" onclick="mudaCorAzul(this)">azul</button>
+<button id="green" onclick="mudaCorVerde(this)">verde</button>
+
+
+</html>

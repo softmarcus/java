@@ -1,0 +1,7 @@
+import java.util.List;
+import com.softgraf.farmacia.model.Cliente;
+
+
+package ClienteRepository;
+	private static ClienteRepository repository = null;
+	

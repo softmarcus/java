@@ -1,0 +1,27 @@
+package ClienteRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.softgraf.farmacia.model.Cliente;
+
+public class ClienteRepository {
+	
+	private static ClienteRepository repository = null;
+	private List<Cliente>lista;
+	
+	private ClienteRepository() {
+		lista = new ArrayList<>();
+	}
+	//padrao singleton
+	public static ClienteRepository getInstancia() {
+		if (repository == null) {
+			repository = new ClienteRepository();
+		}
+		return  repository;
+	}
+	
+	public boolean addCliente(Cliente c) {
+		return lista.add(c);
+	}
+}

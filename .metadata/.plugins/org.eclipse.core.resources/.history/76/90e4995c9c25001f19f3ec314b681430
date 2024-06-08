@@ -1,0 +1,20 @@
+package com.softgraf.farmacia.view;
+
+import com.softgraf.farmacia.model.Cliente;
+import com.softgraf.farmacia.model.Produto;
+
+public class ClienteView {
+
+	//construtor privado
+	private ClienteView() {
+	};
+	
+	public static Cliente cadastrar() {
+		Teclado.msg("cadastro do cliente");
+		
+		
+	String nome = Teclado.lerString("codigo do cliente");
+	Cliente c = new Cliente (nome);
+	return c;
+	}
+}

@@ -1,0 +1,31 @@
+package com.softgraf.farmacia.view;
+
+import java.util.List;
+
+import com.softgraf.farmacia.model.Cliente;
+
+import ClienteRepository.ClienteRepository;
+
+public class ClienteView {
+
+	// construtor privado
+	private ClienteView() {
+	};
+
+	public static Cliente cadastrar() {
+		String nome = Teclado.lerString("nome do cliente:");
+		Cliente c = new Cliente(nome);
+		return c;
+	}
+	
+	public  static void listar(ClienteRepository repository) {
+		System.out.println("\n------Clientes  cadastrados------");
+		List<Cliente> lista = repository.listaClientes();
+		
+		if (lista.isEmpty()) {
+			System.out.println("\n*** nao ha Clientes cadastrados ***\n");
+		} else {
+			lista.forEach(System.out::println);
+		}
+	}
+}

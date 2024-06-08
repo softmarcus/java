@@ -1,0 +1,11 @@
+echo "# java" >> README.md
+git init
+git add .
+git commit -m "Farmacia 3"
+git branch -M farmacia3
+git remote add origin https://github.com/softmarcus/java.git
+git push -u origin farmacia3
+
+git remote add origin https://github.com/softmarcus/java.git
+git branch -M main
+git push -u origin main

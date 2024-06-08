@@ -1,0 +1,8 @@
+package com.softgraf.farmacia.view;
+
+public class Clienteview {
+
+	//construtor privado
+	private void ClienteView() {}
+	
+}
